@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Pom Library App</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<script src="https://kit.fontawesome.com/06df16f567.js" crossorigin="anonymous">
+
+	</script>
+	<script src="script.js" defer>
+
+	</script>
+</head>
+
+<body>
+	<div id='blacken-screen'>
+		<div id='pop-container'>
+			<button id='close-pop'><i class="fas fa-minus fa-2x"></i></button>
+			<form>
+				<div class='form-fields'>
+					<label for='title'>Title</label>
+					<input type='text' name='title'>
+				</div>
+				<div class='form-fields'>
+					<label for='author'>Author</label>
+					<input type='text' name='author'>
+				</div>
+				<div class='form-fields'>
+					<label for='pages'>Pages</label>
+					<input type='text' name='pages'>
+				</div>
+				<div class='form-fields'>
+					<label for='read'>I've read it: </label>
+					<input type='checkbox' name='read' class='check'>
+				</div>
+				<button id='submit'><i class="fas fa-check fa-2x"></i></button>
+			</form>
+		</div>
+	</div>
+	<div id='main-content'>
+		<button id='new'><i class="fas fa-plus fa-2x"></i></i></button>
+		<div id='main-container'>
+			<div id='header'>
+				<h1>My Library App</h1>
+			</div>
+			<div id='table'>
+				<table>
+					<tr>
+						<th class='title'>Title</th>
+						<th class='author'>Author</th>
+						<th class='pages'>Pages</th>
+						<th class='read'>Read</th>
+						<th class='delete'></th>
+					</tr>
+					<tr data='1'>
+						<td class='title'>Book Title</td>
+						<td class='author'>Book Author</td>
+						<td class='pages'>Book Pages</td>
+						<td class='read'><i class="fas fa-check"></i><i class="fas fa-times"></i></td>
+						<td><button class='button-delete del'><i class="far fa-trash-alt del"></i></button></td>
+					</tr>
+				</table>
+			</div>
+			<div id='footer'>Crafted by Pom Poko Labs</div>
+		</div>
+	</div>
+
+
+</body>
+
+</html>
