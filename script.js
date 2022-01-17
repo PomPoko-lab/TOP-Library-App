@@ -52,4 +52,5 @@ popForm.addEventListener('submit', e => {
 	e.preventDefault();
 	popWrapper.classList.toggle('enable');
 	createEntry(e.target, (storeBook(e.target)-1));
+	popForm.reset();
 });
