@@ -11,7 +11,7 @@ class Book {
 		this.pages = pages;
 		this.read = read;
 	}
-}
+};
 
 let books = [];
 
@@ -23,9 +23,9 @@ const createEntry = (object, index) => {
 	let injectRead;
 
 	if (object.read.checked) {
-		injectRead = `<i class="fas fa-check"></i>`;
+		injectRead = `<i class="fas fa-check readButton"></i>`;
 	} else {
-		injectRead = `<i class="fas fa-times"></i>`;
+		injectRead = `<i class="fas fa-times readButton"></i>`;
 	};
 
 	const html = `<tr id='${index}'>
@@ -37,8 +37,25 @@ const createEntry = (object, index) => {
 				</tr>`;
 
 	displayedTable.firstElementChild.innerHTML += html;
-
 };
+
+const deleteEntry = element => {
+	if (element.target.classList.contains('del')) {
+		let row = element.target.closest('tr')
+		row.remove();
+		books.splice(row.id, 1);
+	};
+};
+
+const toggleRead = element => {
+	if (element.target.classList.contains('fa-check')) {
+		element.target.classList.add('fa-times');
+		element.target.classList.remove('fa-check');
+	} else {
+		element.target.classList.add('fa-check');
+		element.target.classList.remove('fa-times');
+	}
+}
 
 closePop.addEventListener('click', () => {
 	popWrapper.classList.toggle('enable');
@@ -49,12 +66,9 @@ popOpen.addEventListener('click', () => {
 });
 
 displayedTable.addEventListener('click', e => {
-	// deletes entry
-	if (e.target.classList.contains('del')) {
-		let row = e.target.closest('tr')
-		row.remove();
-		books.splice(row.id, 1);
-	}
+	deleteEntry(e);
+	toggleRead(e);
+
 });
 
 popForm.addEventListener('submit', e => {

@@ -113,12 +113,12 @@ input {
   width: 2.5em;
 }
 
-#submit:hover {
+#submit:hover, .readButton:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
 
-#submit:active {
+#submit:active, .readButton:active {
   transform: scale(0.95);
 }
 
@@ -205,4 +205,8 @@ td {
 	width: 23px;
 	height: 23px;
 	border-radius: 2px;
+}
+
+.readButton {
+	transform: scale(1.2);
 }
