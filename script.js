@@ -20,16 +20,25 @@ const storeBook = form => {
 }
 
 const createEntry = (object, index) => {
+	let injectRead;
+
+	if (object.read.checked) {
+		injectRead = `<i class="fas fa-check"></i>`;
+	} else {
+		injectRead = `<i class="fas fa-times"></i>`;
+	};
+
 	const html = `<tr id='${index}'>
-						<td class='title'>${object.title.value.trim()}</td>
-						<td class='author'>${object.author.value.trim()}</td>
-						<td class='pages'>${object.pages.value.trim()}</td>
-						<td class='read'><i class="fas fa-check"></i><i class="fas fa-times"></i></td>
-						<td><button class='button-delete del'><i class="far fa-trash-alt del"></i></button></td>
-					</tr>`;
+					<td class='title'>${object.title.value.trim()}</td>
+					<td class='author'>${object.author.value.trim()}</td>
+					<td class='pages'>${object.pages.value.trim()}</td>
+					<td class='read'>${injectRead}</i></td>
+					<td><button class='button-delete del'><i class="far fa-trash-alt del"></i></button></td>
+				</tr>`;
 
 	displayedTable.firstElementChild.innerHTML += html;
-}
+
+};
 
 closePop.addEventListener('click', () => {
 	popWrapper.classList.toggle('enable');
@@ -51,6 +60,6 @@ displayedTable.addEventListener('click', e => {
 popForm.addEventListener('submit', e => {
 	e.preventDefault();
 	popWrapper.classList.toggle('enable');
-	createEntry(e.target, (storeBook(e.target)-1));
+	createEntry(e.target, (storeBook(e.target) - 1));
 	popForm.reset();
 });
